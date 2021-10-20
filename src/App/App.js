@@ -10,6 +10,7 @@ class App extends Component {
       todoItems: [],
       numberOfLeftItems: 0,
       inputValue: '',
+      checked: false,
     }
   }
   
@@ -43,7 +44,7 @@ class App extends Component {
   }
   
   handleInputDelete = (index) => {
-  
+    this.setState({checked: !this.state.checked});
   }
   
   render() {
