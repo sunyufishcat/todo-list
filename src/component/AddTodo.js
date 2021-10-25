@@ -7,7 +7,6 @@ const AddTodo = () => {
   
   const todoListContext = useContext(dispatchContext);
   const [inputValue, setInputValue] = useState("");
-  const setIsAllCompleted = todoListContext.setIsAllCompleted;
   const dispatch = todoListContext.todosDispatch;
   
   const addItem = event => {
@@ -20,7 +19,6 @@ const AddTodo = () => {
         }
       )
       setInputValue('');
-      setIsAllCompleted(false);
     }
   }
   

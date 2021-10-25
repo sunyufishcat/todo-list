@@ -14,8 +14,6 @@ const listReducer = (todos, action) => {
       return todos.filter(todoItem => !todoItem.isCompleted);
     
     case "INPUT_DELETE": {
-      // todos[action.payload].isCompleted = !todos[action.payload].isCompleted;
-      // return todos; 不可直接修改入参
       return todos.map(todo => {
         if (todo.id === action.payload) {
           return { ...todo, isCompleted: !todo.isCompleted };
