@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { v4 as uuidv4 } from "uuid";
-import {dispatchContext} from './Todos';
+import {dispatchContext} from '../Todos/Todos';
 
 const AddTodo = () => {
   const ENTER_KEY = 13;

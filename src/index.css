@@ -115,6 +115,14 @@ footer p a:hover {
     position: relative;
 }
 
+.items .todo-list li.editing .view {
+    display: none;
+}
+
+.items .todo-list li .edit {
+    display: none;
+}
+
 .items .todo-list li:last-child {
     border-bottom: none;
 }
