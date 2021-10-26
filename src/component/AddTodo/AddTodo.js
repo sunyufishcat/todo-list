@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
-import { v4 as uuidv4 } from "uuid";
 import {dispatchContext} from '../Todos/Todos';
+import {addTodo} from '../../actions/dispatcher';
 
 const AddTodo = () => {
   const ENTER_KEY = 13;
@@ -12,12 +12,7 @@ const AddTodo = () => {
   const addItem = event => {
     const newItem = inputValue.trim();
     if (event.keyCode === ENTER_KEY && newItem) {
-      dispatch(
-        {
-          type: "ADD_TODO",
-          payload: {id: uuidv4(), value: newItem, isCompleted: false}
-        }
-      )
+      addTodo(dispatch, newItem);
       setInputValue('');
     }
   }
