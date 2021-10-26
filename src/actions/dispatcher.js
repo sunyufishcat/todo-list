@@ -9,4 +9,31 @@ const addTodo = (dispatch, newItem) => {
   )
 }
 
-export  { addTodo };
+const toggleAll = (dispatch, todos) => {
+  dispatch(
+    {
+      type: "TOGGLE_ALL",
+      payload: todos.find(todoItem => !todoItem.isCompleted)
+    }
+  )
+}
+
+const inputDelete = (dispatch, id) => {
+  dispatch(
+    {
+      type: "INPUT_DELETE",
+      payload: id
+    }
+  )
+}
+
+const buttonDelete = (dispatch, id) => {
+  dispatch(
+    {
+      type: "BUTTON_DELETE",
+      payload: id
+    }
+  )
+}
+
+export  { addTodo, toggleAll, inputDelete, buttonDelete };

@@ -2,36 +2,23 @@ import React, {useContext} from 'react';
 import {dispatchContext} from '../Todos/Todos';
 import InputField from '../InputField';
 import OverView from '../OverView/OverView';
+import {toggleAll, inputDelete, buttonDelete} from '../../actions/dispatcher';
 
 const TodoList = () => {
   const todoListContext = useContext(dispatchContext);
   const { todosDispatch, todos } = todoListContext;
   
   const handleAllToggle = () => {
-    todosDispatch(
-      {
-        type: "TOGGLE_ALL",
-        payload: todos.find(todoItem => !todoItem.isCompleted)
-      }
-    )
+    toggleAll(todosDispatch, todos);
   }
   
   const handleInputDelete = (id) => {
-    todosDispatch(
-      {
-        type: "INPUT_DELETE",
-        payload: id
-      }
-    )
+    inputDelete(todosDispatch, id);
+    
   }
   
   const handleButtonDelete = (id) => {
-    todosDispatch(
-      {
-        type: "BUTTON_DELETE",
-        payload: id
-      }
-    )
+    buttonDelete(todosDispatch, id);
   }
   
   return (
