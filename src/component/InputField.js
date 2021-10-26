@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InputField = (props) => {
-  const { type, id, onClick, className, labelValue, htmlFor, checked} = props;
+  const { type, id, onClick, className, labelValue, htmlFor, checked } = props;
   return (
     <>
       <input
