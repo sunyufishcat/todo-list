@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {dispatchContext} from '../Todos/Todos';
+import {clearCompleted} from '../../actions/dispatcher';
 
 function OverView() {
   const todoListContext = useContext(dispatchContext);
@@ -15,11 +16,7 @@ function OverView() {
   ).length;
   
   const handleClear = () => {
-    dispatch(
-      {
-        type: "CLEAR_COMPLETED"
-      }
-    )
+    clearCompleted(dispatch);
   }
   
   return (

@@ -36,4 +36,12 @@ const buttonDelete = (dispatch, id) => {
   )
 }
 
-export  { addTodo, toggleAll, inputDelete, buttonDelete };
+const clearCompleted = (dispatch) => {
+  dispatch(
+    {
+      type: "CLEAR_COMPLETED"
+    }
+  )
+}
+
+export { addTodo, toggleAll, inputDelete, buttonDelete, clearCompleted };
