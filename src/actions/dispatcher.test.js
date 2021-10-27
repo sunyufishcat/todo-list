@@ -2,6 +2,9 @@ import {addTodo, buttonDelete, clearCompleted, inputDelete, toggleAll} from './d
 import {ACTIONS} from '../reducer/listReducer';
 import { v4 as uuidv4 } from "uuid";
 
+jest.mock('uuid', () => {
+  return {v4: jest.fn().mockReturnValue(1)}
+});
 describe('dispatcher', () => {
   test('should dispatch actions when addTodo called', () => {
     const mockDispatch = jest.fn();
