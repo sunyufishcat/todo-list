@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer>
       <p>Double-click to edit a todo</p>
