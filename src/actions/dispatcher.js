@@ -1,9 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
+import {ACTIONS} from '../reducer/listReducer';
 
 const addTodo = (dispatch, newItem) => {
   dispatch(
     {
-    type: "ADD_TODO",
+    type: ACTIONS.ADD_TODO,
     payload: {id: uuidv4(), value: newItem, isCompleted: false}
     }
   )
@@ -12,7 +13,7 @@ const addTodo = (dispatch, newItem) => {
 const toggleAll = (dispatch, todos) => {
   dispatch(
     {
-      type: "TOGGLE_ALL",
+      type: ACTIONS.TOGGLE_ALL,
       payload: todos.find(todoItem => !todoItem.isCompleted)
     }
   )
@@ -21,7 +22,7 @@ const toggleAll = (dispatch, todos) => {
 const inputDelete = (dispatch, id) => {
   dispatch(
     {
-      type: "INPUT_DELETE",
+      type: ACTIONS.INPUT_DELETE,
       payload: id
     }
   )
@@ -30,7 +31,7 @@ const inputDelete = (dispatch, id) => {
 const buttonDelete = (dispatch, id) => {
   dispatch(
     {
-      type: "BUTTON_DELETE",
+      type: ACTIONS.BUTTON_DELETE,
       payload: id
     }
   )
@@ -39,7 +40,7 @@ const buttonDelete = (dispatch, id) => {
 const clearCompleted = (dispatch) => {
   dispatch(
     {
-      type: "CLEAR_COMPLETED"
+      type: ACTIONS.CLEAR_COMPLETED
     }
   )
 }
