@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {dispatchContext} from '../Todos/Todos';
-import InputField from '../InputField';
+import InputField from '../InputField/InputField';
 import OverView from '../OverView/OverView';
 import {toggleAll, inputDelete, buttonDelete} from '../../actions/dispatcher';
 
