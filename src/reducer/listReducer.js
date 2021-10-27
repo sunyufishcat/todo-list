@@ -1,19 +1,27 @@
+export const ACTIONS = {
+  ADD_TODO: "ADD_TODO",
+  TOGGLE_ALL: "TOGGLE_ALL",
+  CLEAR_COMPLETED: "CLEAR_COMPLETED",
+  INPUT_DELETE: "INPUT_DELETE",
+  BUTTON_DELETE: "BUTTON_DELETE"
+}
+
 const listReducer = (todos, action) => {
   
   switch (action.type){
-    case "ADD_TODO":
+    case ACTIONS.ADD_TODO:
       return [...todos, action.payload];
       
-    case "TOGGLE_ALL":
+    case ACTIONS.TOGGLE_ALL:
       return todos.map(todo => ({
         ...todo,
         isCompleted: action.payload,
       }))
     
-    case "CLEAR_COMPLETED":
+    case ACTIONS.CLEAR_COMPLETED:
       return todos.filter(todoItem => !todoItem.isCompleted);
     
-    case "INPUT_DELETE": {
+    case ACTIONS.INPUT_DELETE: {
       return todos.map(todo => {
         if (todo.id === action.payload) {
           return { ...todo, isCompleted: !todo.isCompleted };
@@ -22,7 +30,7 @@ const listReducer = (todos, action) => {
       })
     }
     
-    case "BUTTON_DELETE":
+    case ACTIONS.BUTTON_DELETE:
       return todos.filter(todoItem => todoItem.id !== action.payload)
       
     default:
