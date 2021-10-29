@@ -1,6 +1,16 @@
-import React from 'react';
+import React, {FC, ReactElement} from 'react';
 
-const InputField = (props) => {
+interface props {
+  type: string;
+  id: string;
+  onClick: React.MouseEventHandler<HTMLInputElement>;
+  className: string;
+  labelValue?: string;
+  htmlFor?: string;
+  checked?: boolean;
+}
+
+const InputField: FC<props>  = (props): ReactElement => {
   const { type, id, onClick, className, labelValue, htmlFor, checked } = props;
   return (
     <>

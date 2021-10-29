@@ -1,20 +1,25 @@
 import InputField from '../InputField/InputField';
-import React, {useContext} from 'react';
+import * as React from 'react';
+import {FC, ReactElement, useContext} from 'react';
 import {buttonDelete, inputDelete} from '../../actions/dispatcher';
 import {dispatchContext} from '../Todos/Todos';
+import {todo} from '../../actions/Actions';
 
-const ListItem = ({todoItem}) => {
-  const todoListContext = useContext(dispatchContext);
-  const { todosDispatch } = todoListContext;
-  
-  const handleInputDelete = (id) => {
+interface Props {
+  todoItem: todo;
+}
+
+const ListItem: FC<Props> = ({todoItem}): ReactElement => {
+  const { todosDispatch } = useContext(dispatchContext);
+
+  const handleInputDelete = (id: string): void => {
     inputDelete(todosDispatch, id);
   }
-  
-  const handleButtonDelete = (id) => {
+
+  const handleButtonDelete = (id: string): void => {
     buttonDelete(todosDispatch, id);
   }
-  
+
   return (
     <li className={todoItem.isCompleted ? "completed" : "active"}>
       <div className="view">

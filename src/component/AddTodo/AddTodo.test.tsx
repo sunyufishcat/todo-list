@@ -8,6 +8,7 @@ import {addTodo} from '../../actions/dispatcher';
 
 jest.mock('../../actions/dispatcher');
 const mockProvider = {
+  todos: [],
   todosDispatch: jest.fn(),
 };
 describe('AddTodo', () => {
@@ -18,16 +19,15 @@ describe('AddTodo', () => {
       </dispatchContext.Provider>
     )
   })
-  
+
   test('should render input and add todo when enter key down', () => {
-    
+
     expect(screen.getByPlaceholderText(/What needs to be done?/)).toBeInTheDocument();
-    
     userEvent.type(screen.getByRole('textbox'), 'test{enter}');
     expect(screen.getByRole('textbox')).toBeEmptyDOMElement();
     expect(addTodo).toBeCalledWith(mockProvider.todosDispatch, 'test');
   })
-  
+
   test('should trim input value when enter key down', () => {
     userEvent.type(screen.getByRole('textbox'), '       test{enter}');
     expect(screen.getByRole('textbox')).toBeEmptyDOMElement();

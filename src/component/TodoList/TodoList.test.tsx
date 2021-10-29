@@ -9,8 +9,8 @@ import {toggleAll} from '../../actions/dispatcher';
 jest.mock('../../actions/dispatcher');
 const mockProvider = {
   todos: [
-    {id: 1, value: 'test1', isCompleted: false},
-    {id: 2, value: 'test2', isCompleted: false},
+    {id: '1', value: 'test1', isCompleted: false},
+    {id: '2', value: 'test2', isCompleted: false},
   ],
   todosDispatch: jest.fn(),
 };
@@ -22,11 +22,11 @@ describe('TodoList', () => {
       </dispatchContext.Provider>
     )
   })
-  
+
   test('should render all todo lists', () => {
     expect(screen.getAllByRole('listitem').length).toBe(2);
   })
-  
+
   test('should call toggle_all function when click toggle checkbox', () => {
     userEvent.click(screen.getAllByRole('checkbox')[0]);
     expect(toggleAll).toBeCalledWith(mockProvider.todosDispatch, mockProvider.todos);

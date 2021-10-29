@@ -1,7 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
-import {ACTIONS} from '../reducer/listReducer';
+import {Actions, ACTIONS, TodoItems} from './Actions';
+import React from 'react';
 
-const addTodo = (dispatch, newItem) => {
+type dispatcher = React.Dispatch<Actions>;
+
+const addTodo = (dispatch: dispatcher, newItem: string): void => {
   dispatch(
     {
     type: ACTIONS.ADD_TODO,
@@ -10,7 +13,7 @@ const addTodo = (dispatch, newItem) => {
   )
 }
 
-const toggleAll = (dispatch, todos) => {
+const toggleAll = (dispatch: dispatcher, todos: TodoItems): void => {
   dispatch(
     {
       type: ACTIONS.TOGGLE_ALL,
@@ -19,7 +22,7 @@ const toggleAll = (dispatch, todos) => {
   )
 }
 
-const inputDelete = (dispatch, id) => {
+const inputDelete = (dispatch: dispatcher, id: string): void => {
   dispatch(
     {
       type: ACTIONS.INPUT_DELETE,
@@ -28,7 +31,7 @@ const inputDelete = (dispatch, id) => {
   )
 }
 
-const buttonDelete = (dispatch, id) => {
+const buttonDelete = (dispatch: dispatcher, id: string): void=> {
   dispatch(
     {
       type: ACTIONS.BUTTON_DELETE,
@@ -37,7 +40,7 @@ const buttonDelete = (dispatch, id) => {
   )
 }
 
-const clearCompleted = (dispatch) => {
+const clearCompleted = (dispatch: dispatcher): void => {
   dispatch(
     {
       type: ACTIONS.CLEAR_COMPLETED

@@ -6,8 +6,9 @@ import ListItem from './ListItem';
 import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('../../actions/dispatcher');
-const mockTodoItem = {id: 1, value: 'test', isCompleted: false};
+const mockTodoItem = {id: '1', value: 'test', isCompleted: false};
 const mockProvider = {
+  todos: [],
   todosDispatch: jest.fn(),
 };
 
@@ -19,21 +20,21 @@ describe('ListItem', () => {
       </dispatchContext.Provider>
     )
   })
-  
+
   test('should render todo item', () => {
     expect(screen.getByText('test')).toBeInTheDocument();
     userEvent.hover(screen.getByRole('listitem'));
     expect(screen.getByRole('button')).toHaveClass('delete');
 
   })
-  
+
   test('should call input_delete function when click todo item checkbox', () => {
     userEvent.click(screen.getByRole('checkbox'));
-    expect(inputDelete).toBeCalledWith(mockProvider.todosDispatch, 1);
+    expect(inputDelete).toBeCalledWith(mockProvider.todosDispatch, "1");
   })
-  
+
   test('should call button_delete function when click delete button', () => {
     userEvent.click(screen.getByRole('button'));
-    expect(buttonDelete).toBeCalledWith(mockProvider.todosDispatch, 1);
+    expect(buttonDelete).toBeCalledWith(mockProvider.todosDispatch, "1");
   })
 })

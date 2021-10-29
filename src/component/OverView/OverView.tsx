@@ -1,24 +1,22 @@
-import React, {useContext} from 'react';
+import React, {FC, ReactElement, useContext} from 'react';
 import {dispatchContext} from '../Todos/Todos';
 import {clearCompleted} from '../../actions/dispatcher';
 
-function OverView() {
-  const todoListContext = useContext(dispatchContext);
-  const dispatch = todoListContext.todosDispatch;
-  const todoItems = todoListContext.todos;
-  
-  const numberOfLeftItems = todoItems.filter(
+const OverView: FC = (): ReactElement => {
+  const { todos, todosDispatch } = useContext(dispatchContext);
+
+  const numberOfLeftItems: number = todos.filter(
     (todoItem) => !todoItem.isCompleted
   ).length;
-  
-  const numberOfCompletedItems = todoItems.filter(
+
+  const numberOfCompletedItems: number = todos.filter(
     (todoItem) => todoItem.isCompleted
   ).length;
-  
-  const handleClear = () => {
-    clearCompleted(dispatch);
+
+  const handleClear = (): void => {
+    clearCompleted(todosDispatch);
   }
-  
+
   return (
     <div className="overview">
       <div className="items-left">

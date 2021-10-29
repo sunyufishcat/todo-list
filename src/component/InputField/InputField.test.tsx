@@ -15,10 +15,10 @@ describe('InputField', () => {
     htmlFor: 'testId',
     checked: true,
   }
-  
+
   test('should render input and label', () => {
     render(<InputField {...props} />);
-    const input = screen.getByLabelText('testValue');
+    const input = screen.getByLabelText('testValue') as HTMLInputElement;
     expect(input.type).toBe('text');
     expect(input.id).toEqual('testId');
     expect(input.checked).toBeTruthy();
